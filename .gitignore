@@ -1,0 +1,13 @@
+.DS_Store
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.venv/
+# Rounds and exports are data, not part of the tool.
+rounds/
+*.po
+# Local only: agent sessions and tests that need private round data.
+session.id
+tests/test_local_*

@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mahara-lang-tool"
+dynamic = ["version"]
+description = "Prepare, check and build translation rounds for gettext PO files (Weblate, Mahara)."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "Jan Grade"}]
+dependencies = []
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Environment :: Console",
+    "Topic :: Software Development :: Localization",
+]
+
+[project.urls]
+Homepage = "https://github.com/jangrade/mahara-lang-tool"
+Issues = "https://github.com/jangrade/mahara-lang-tool/issues"
+
+[project.scripts]
+mahara-lang-tool = "mahara_lang_tool.cli:main"
+
+[tool.setuptools.dynamic]
+version = {attr = "mahara_lang_tool.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["mahara_lang_tool*"]
+
+[tool.setuptools.package-data]
+mahara_lang_tool = ["profiles/*.json"]

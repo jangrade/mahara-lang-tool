@@ -1,0 +1,77 @@
+{
+  "_comment": "Template for a new language. Copy it (e.g. to mahara-nl.json) and fill it in. Keys starting with _ are comments and are dropped on load; list entries with \"_example\": true are dropped too. An almost empty profile is valid: then only the structural checks run, which are already half the value.",
+  "_comment_workflow": "Where the content comes from: run 'mahara-lang-tool analyze --export EXPORT.po --out analysis.md' first and go through the report. Sections 1 and 2 show which terms are translated inconsistently — those become 'terms' and 'collisions'. Section 4 counts the 'forms' once you have added some. Decide with a native speaker who knows the pack; the report counts, it does not decide.",
+  "language": "xx",
+  "language_name": "",
+  "project": "Mahara",
+  "_comment_plural": "Optional: without 'plural_forms' the Plural-Forms line of the export header is used. If you set it, it must have the same nplurals as the export.",
+  "_comment_guidelines": "Free text, goes verbatim into the brief for the translator: the conventions of this language that a translator has to follow, in plain words, and how to treat placeholders and markup. The more concrete and the more backed by the existing translations, the better.",
+  "guidelines": [],
+  "_comment_glossary": "Fixed equivalents. 'source' is searched as a whole word unless a 'pattern' is given. Hits are listed per unit in the scaffold.",
+  "glossary": [
+    {
+      "_example": true,
+      "source": "collection",
+      "target": "",
+      "note": ""
+    }
+  ],
+  "_comment_terms": "Counted against the existing translations: which variant prevails? The most frequent one is the house form; deviations in new drafts are reported. 'source' searches the English, 'variants' search the translation (regular expressions, case-insensitive). Units whose translation matches no variant are counted as 'none of these' in the analysis. A term is only found where the English still contains it; for a word the source has replaced, use a form. One term per meaning: several source words in one term only if the language uses the same word for them. Add \"blocking\": true to a term to make a deviation from its house form stop the build (see _comment_blocking).",
+  "terms": [
+    {
+      "_example": true,
+      "name": "collection",
+      "source": "\\bcollection",
+      "variants": [
+        "",
+        ""
+      ]
+    }
+  ],
+  "_comment_collisions": "The sharpest check: one target word covering several source terms, swallowing a distinction the source makes. Candidates are in section 2 of the analysis.",
+  "collisions": [
+    {
+      "_example": true,
+      "target": "",
+      "pattern": "",
+      "sources": [
+        {
+          "name": "",
+          "source": ""
+        }
+      ]
+    }
+  ],
+  "_comment_forms": "Linguistic forms that are counted in the translations, whatever the English says. \"wanted\": false reports every hit as a note: use it for whatever makes this language inconsistent. Wanted forms are only counted. The analysis shows sample hits: check them, a pattern that also hits something else gives wrong numbers. Add \"blocking\": true to an unwanted form to make every hit stop the build (see _comment_blocking).",
+  "forms": [
+    {
+      "_example": true,
+      "name": "<a form you want counted>",
+      "pattern": "",
+      "wanted": false
+    }
+  ],
+  "_comment_blocking": "What stops the build until a translation is fixed or its unit has a \"note\" explaining it. Preferred: \"blocking\": true on a single term or unwanted form, for rules the person decided and whose sample hits are clean. The list below switches whole kinds of notes instead: term, form, title_material, title_cosmetic, craft, unchanged, sentences. A rule that blocks makes an agent follow it instead of skipping it; a rule with false alarms costs a note each time, so leave such a rule non-blocking rather than delete it.",
+  "blocking": [],
+  "_comment_placeholders": "Only change if the project is not Mahara/PHP. The default covers sprintf (%s, %d, %1$s) and Mahara's {$a->foo}.",
+  "placeholders": {
+    "positional": "%[sd]",
+    "indexed": "%\\d+\\$[sd]",
+    "named": "\\{\\$a(?:->\\w+)?\\}"
+  },
+  "_comment_skip": "Files whose strings are not prose. In Mahara that is langconfig.php with its date formats: %d and %m there are not placeholders.",
+  "skip_files": [
+    "langconfig\\.php"
+  ],
+  "_comment_repeated": "Words that may legitimately appear twice in a row in this language.",
+  "repeated_word_ok": [],
+  "_comment_titles": "Removed before comparing a help title with its field label: everything that may differ cosmetically between the two in this language (regular expressions).",
+  "title_normalize": [],
+  "_comment_batch": "Units per batch. 80 has worked well: small enough to finish in one go, large enough to keep the number of files manageable.",
+  "batch_size": 80,
+  "_comment_agent": "Additional instructions that go into the brief under the guidelines — working method rather than language rules.",
+  "agent_notes": [
+    "Work through a batch in order and do not skip numbers — 'status' and 'check' report missing ones.",
+    "If the source is doubtful, do not guess silently: translate what is there and record the case in a note."
+  ]
+}
